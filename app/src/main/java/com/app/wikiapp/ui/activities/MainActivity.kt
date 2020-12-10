@@ -1,4 +1,4 @@
-package com.app.wikiapp.ui
+package com.app.wikiapp.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
