@@ -9,7 +9,7 @@ import retrofit2.http.POST
 interface NetworkInterface {
 
     @GET("w/api.php?format=json&action=query&generator=random&grnnamespace=0&prop=revisions%7Cimages&rvprop=content&grnlimit=10")
-    fun getAppData(@Body appModel: AppModel) : Call<AppModel>
+    fun getArticle() : Call<AppModel>
 
 //    @GET("restful_api/register_user.php")
 //    fun registerUser(@Body appModel: AppModel) : Call<AppModel>
