@@ -17,7 +17,7 @@ class AppRepository {
         articles = MutableLiveData()
     }
 
-    fun getArticle(): MutableLiveData<AppModel> {
+    suspend fun getArticle(): MutableLiveData<AppModel> {
 
         RetrofitClient.service.getArticle().enqueue(object : Callback<AppModel> {
 

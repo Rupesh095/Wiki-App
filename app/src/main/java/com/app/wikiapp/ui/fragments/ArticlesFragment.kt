@@ -9,7 +9,6 @@ import com.app.wikiapp.R
 
 class ArticlesFragment : Fragment() {
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

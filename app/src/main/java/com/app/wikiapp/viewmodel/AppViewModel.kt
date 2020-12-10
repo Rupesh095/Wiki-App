@@ -3,8 +3,10 @@ package com.app.wikiapp.viewmodel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.app.wikiapp.data.AppModel
 import com.app.wikiapp.repository.AppRepository
+import kotlinx.coroutines.launch
 
 class AppViewModel (application: Application) : AndroidViewModel(application) {
 
@@ -14,7 +16,7 @@ class AppViewModel (application: Application) : AndroidViewModel(application) {
         appRepository = AppRepository()
     }
 
-    fun getArticle(): MutableLiveData<AppModel> {
+    fun getArticle(): MutableLiveData<AppModel> = viewModelScope.launch{
         return appRepository.getArticle()
     }
 }
