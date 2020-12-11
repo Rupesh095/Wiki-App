@@ -5,6 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import com.app.wikiapp.data.AppModel
 import com.app.wikiapp.network.RetrofitClient
 import com.google.gson.Gson
+import com.google.gson.JsonElement
+import okhttp3.ResponseBody
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -12,21 +14,21 @@ import retrofit2.Response
 
 class AppRepository {
 
-    var articles : MutableLiveData<JSONObject>
+    var articles : MutableLiveData<JsonElement>
 
     init {
         articles = MutableLiveData()
     }
 
-    fun getArticle(): MutableLiveData<JSONObject> {
+    fun getArticle(): MutableLiveData<JsonElement> {
 
-        RetrofitClient.service.getArticle().enqueue(object : Callback<JSONObject> {
+        RetrofitClient.service.getArticle().enqueue(object : Callback<JsonElement> {
 
-            override fun onFailure(call: Call<JSONObject>, t: Throwable) {
+            override fun onFailure(call: Call<JsonElement>, t: Throwable) {
                 Log.d("GETARTICLE", ""+t.message)
             }
 
-            override fun onResponse(call: Call<JSONObject>, response: Response<JSONObject>) {
+            override fun onResponse(call: Call<JsonElement>, response: Response<JsonElement>) {
                 articles.value = response.body()
                 Log.d("GETARTICLE", ""+Gson().toJson(response.body()))
 

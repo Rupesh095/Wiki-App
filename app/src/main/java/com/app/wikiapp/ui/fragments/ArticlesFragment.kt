@@ -1,6 +1,7 @@
 package com.app.wikiapp.ui.fragments
 
 import android.os.Bundle
+import android.util.JsonReader
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,7 +14,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.app.wikiapp.R
 import com.app.wikiapp.adapter.ArticleAdapter
+import com.app.wikiapp.utils.JsonParser
 import com.app.wikiapp.viewmodel.AppViewModel
+import com.google.gson.Gson
+import com.google.gson.JsonObject
+import org.json.JSONException
+import org.json.JSONObject
 
 class ArticlesFragment : Fragment() {
 
@@ -48,9 +54,24 @@ class ArticlesFragment : Fragment() {
         appViewModel.getArticle().observe(viewLifecycleOwner, Observer { response ->
 
             Log.d("RESPONSE", ""+response);
-            Toast.makeText(context, ""+response, Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, ""+ Gson().toJson(response), Toast.LENGTH_SHORT).show()
+//            try {
+//            var jsonObject = JSONObject(response.toString())
+//            var queryObject = jsonObject.getJSONObject("query")
+//            var pageObject = queryObject.getJSONObject("pages")
+//            var numObject = pageObject.getJSONObject("4406048")
+//            var id = numObject.getString("pageid")
+//                Log.d("IDID", id)
+//
+//        } catch (e : JSONException) {
+//            e.printStackTrace();
+//        }
+
+
 
         })
+
+
 
     }
 

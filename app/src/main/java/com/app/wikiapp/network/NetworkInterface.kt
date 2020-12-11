@@ -1,13 +1,20 @@
 package com.app.wikiapp.network
 
+import com.app.wikiapp.data.AppModel
+import com.google.gson.JsonElement
+import okhttp3.Response
+import okhttp3.ResponseBody
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.Headers
+import retrofit2.http.POST
 
 interface NetworkInterface {
 
-    @GET("w/api.php?format=json&action=query&generator=random&grnnamespace=0&prop=revisions%7Cimages&rvprop=content&grnlimit=10")
-    fun getArticle() : Call<JSONObject>
+    @Headers("Content-Type: application/json")
+    @GET("w/api.php?action=query&prop=imageinfo&iiprop=timestamp%7Cuser%7Curl&generator=categorymembers&gcmtype=file&gcmtitle=Category:Featured_pictures_on_Wikimedia_Commons&format=json&utf8")
+    fun getArticle() : Call<JsonElement>
 
 //    @GET("restful_api/register_user.php")
 //    fun registerUser(@Body appModel: AppModel) : Call<AppModel>
