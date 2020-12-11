@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.app.wikiapp.data.AppModel
 import com.app.wikiapp.repository.AppRepository
 import kotlinx.coroutines.launch
+import org.json.JSONObject
 
 class AppViewModel (application: Application) : AndroidViewModel(application) {
 
@@ -16,7 +17,8 @@ class AppViewModel (application: Application) : AndroidViewModel(application) {
         appRepository = AppRepository()
     }
 
-    fun getArticle(): MutableLiveData<AppModel> = viewModelScope.launch{
+    fun getArticle(): MutableLiveData<JSONObject> {
         return appRepository.getArticle()
     }
+
 }
