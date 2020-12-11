@@ -1,4 +1,5 @@
 # Wiki-App
 Wiki App
 
-https://github.com/Rupesh095/Wiki-App/blob/master/img.png
+![img](https://user-images.githubusercontent.com/39727572/101919011-17a7e100-3bf0-11eb-9d35-a7eafe32d740.png)
+
